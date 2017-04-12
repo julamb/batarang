@@ -1,5 +1,5 @@
-{
-  "name": "AngularJS Batarang",
+ {
+  "name": "AngularJS Batarang (DIRTY)",
   "version": "0.10.9",
   "description": "Extends the Developer Tools, adding tools for debugging and profiling AngularJS applications.",
   "devtools_page": "devtoolsBackground.html",
@@ -8,10 +8,5 @@
     "tabs",
     "<all_urls>"
   ],
-  "icons": {
-    "16": "img/webstore-icon.png",
-    "48": "img/webstore-icon.png",
-    "128": "img/webstore-icon.png"
-  },
   "minimum_chrome_version": "21.0.1180.57"
 }

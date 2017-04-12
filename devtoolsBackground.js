@@ -19,9 +19,11 @@ function getPanelContents() {
 
   if (angular && $0) {
     var scope = getScope($0);
+    var injector = getInjector($0);
 
     // Export $scope to the console
     window.$scope = scope;
+    window.$injector = injector;
 
     // Get sidebar contents
     panelContents.__private__ = {};
@@ -43,5 +45,17 @@ function getPanelContents() {
       return node && getScope(node);
     }
     return scope;
+  }
+
+    // Helpers
+  function getInjector(node) {
+    var injector = angular.element(node).injector();
+    if (!injector) {
+      // Might be a child of a DocumentFragment...
+      while (node && node.nodeType === Node.ELEMENT_NODE) node = node.parentNode;
+      if (node && node.nodeType === Node.DOCUMENT_FRAGMENT_NODE) node = node.parentNode || node.host;
+      return node && getInjector(node);
+    }
+    return injector;
   }
 }
